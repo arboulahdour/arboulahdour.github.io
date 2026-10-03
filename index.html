@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Abderrahmane Boulahdour</title>
+  <meta name="author" content="Abderrahmane Boulahdour">
+  <meta name="description" content="Abderrahmane Boulahdour is a Ph.D. student at UQTR working on Time-Sensitive Networking (TSN) and Software-Defined Networking (SDN) for the Cloud-Edge Computing Continuum.">
+  <meta name="keywords" content="Abderrahmane Boulahdour, TSN, Time-Sensitive Networking, SDN, ATS, eBPF, Industry 5.0, UQTR">
+  <link rel="canonical" href="https://arboulahdour.github.io/">
+
+  <!-- Fonts (icons are embedded as inline SVG) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #212529;
+      --muted: #6c757d;
+      --accent: #b509ac;
+      --border: #e5e5e5;
+      --nav-bg: #ffffff;
+      --badge-bg: #b509ac;
+      --badge-text: #ffffff;
+      --row-hover: #fafafa;
+      --img-shadow: 0 6px 16px rgba(0,0,0,.22), 0 2px 4px rgba(0,0,0,.10);
+    }
+    :root[data-theme="dark"] {
+      --bg: #1c1c1d;
+      --text: #e8e8e8;
+      --muted: #a0a0a0;
+      --accent: #2698ba;
+      --border: #3a3a3c;
+      --nav-bg: #1c1c1d;
+      --badge-bg: #2698ba;
+      --badge-text: #ffffff;
+      --row-hover: #252527;
+      --img-shadow: 0 2px 8px rgba(0,0,0,.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Roboto", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.6;
+      transition: background .2s, color .2s;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    b, strong { font-weight: 700; }
+
+    .icon { width: 1em; height: 1em; display: inline-block; vertical-align: -0.125em; }
+
+    a.plain { color: inherit; font-weight: inherit; }
+    .about a.plain { font-weight: 700; }
+    a.plain:hover { color: var(--accent); text-decoration: underline; }
+
+    /* ---------- Navbar ---------- */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,.04);
+    }
+    .nav-inner {
+      max-width: 930px; margin: 0 auto; padding: 0 16px;
+      height: 56px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-weight: 300; font-size: 1.2rem; color: var(--text); }
+    .nav-brand b { font-weight: 500; }
+    .nav-brand:hover { text-decoration: none; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { color: var(--text); font-size: 1rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); text-decoration: none; }
+    .theme-btn, .menu-btn {
+      background: none; border: none; color: var(--text); cursor: pointer; font-size: 1rem; padding: 4px;
+    }
+    .theme-btn:hover, .menu-btn:hover { color: var(--accent); }
+    .menu-btn { display: none; font-size: 1.3rem; }
+
+    /* ---------- Layout ---------- */
+    main { max-width: 930px; margin: 0 auto; padding: 88px 16px 40px; }
+    h1.name {
+      font-family: "Roboto", sans-serif; font-weight: 300; font-size: 2.6rem;
+      margin: 0 0 18px; line-height: 1.2;
+    }
+    h1.name b { font-weight: 700; }
+    h2 {
+      font-weight: 400; font-size: 1.6rem; color: var(--accent);
+      margin: 44px 0 14px; padding-bottom: 6px;
+    }
+
+    /* ---------- About ---------- */
+    .profile { float: right; width: 34%; max-width: 280px; margin: 0 0 16px 24px; }
+    .profile img {
+      width: 100%; border-radius: 4px; display: block;
+      box-shadow: var(--img-shadow);
+    }
+    .profile .addr { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.45; }
+    .about p { margin: 0 0 14px; text-align: justify; }
+    .highlight-box {
+      border-left: 3px solid var(--accent); padding: 8px 14px; margin: 18px 0;
+      background: var(--row-hover);
+    }
+    .clearfix::after { content: ""; display: table; clear: both; }
+
+    .social { display: flex; gap: 18px; font-size: 1.7rem; margin: 18px 0 4px; }
+    .social a { color: var(--text); }
+    .social a:hover { color: var(--accent); text-decoration: none; }
+
+    /* ---------- Tables (news / edu / exp) ---------- */
+    table.timeline { width: 100%; border-collapse: collapse; }
+    table.timeline td { padding: 9px 8px; vertical-align: top; border-bottom: 1px solid var(--border); }
+    table.timeline tr:last-child td { border-bottom: none; }
+    table.timeline td.date { width: 22%; white-space: nowrap; font-weight: 500; color: var(--text); }
+    table.timeline .sub { color: var(--muted); font-size: .95rem; }
+    table.timeline .role { font-style: italic; }
+    table.timeline ul { margin: 4px 0 0; padding-left: 18px; color: var(--muted); font-size: .93rem; }
+    .news-scroll { max-height: 340px; overflow-y: auto; }
+
+    /* ---------- Publications ---------- */
+    .pub-note { color: var(--muted); font-size: .9rem; margin: -4px 0 10px; }
+    h3.pub-group { font-weight: 500; font-size: 1.1rem; margin: 26px 0 6px; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+    ol.pubs { list-style: none; padding: 0; margin: 0; counter-reset: pub; }
+    ol.pubs li {
+      display: flex; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--border);
+    }
+    ol.pubs li:last-child { border-bottom: none; }
+    .abbr { flex: 0 0 230px; }
+    .badge {
+      display: block; text-align: center; background: var(--badge-bg); color: var(--badge-text);
+      font-size: .78rem; font-weight: 700; padding: 4px 6px; border-radius: 3px; letter-spacing: .02em;
+    }
+    /* Fixed-size white frame: every image fits inside without changing the box size */
+    .thumb {
+      display: block; width: 230px; height: 150px; margin-top: 10px;
+      object-fit: contain; background: #ffffff; padding: 6px;
+      border-radius: 6px; border: 1px solid var(--border);
+      box-shadow: var(--img-shadow);
+      cursor: zoom-in; transition: transform .15s;
+    }
+    .thumb:hover { transform: scale(1.03); }
+    /* Magnifier hint on each thumbnail */
+    .thumb-wrap { position: relative; display: block; width: 230px; }
+    .zoom-hint {
+      position: absolute; right: 6px; bottom: 6px; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(0,0,0,.6); color: #fff; display: flex; align-items: center; justify-content: center;
+      pointer-events: none; opacity: .75; transition: opacity .15s;
+    }
+    .zoom-hint svg { width: 10px; height: 10px; }
+    .thumb-wrap:hover .zoom-hint { opacity: 1; }
+
+    /* Full-screen viewer */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,.85);
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 48px 16px 16px; overflow: auto; cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      width: min(95vw, 1100px); height: auto; max-height: 82vh; object-fit: contain;
+      background: #fff; padding: 10px; border-radius: 8px;
+      cursor: zoom-in; box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+    .lightbox.zoomed { align-items: flex-start; justify-content: flex-start; }
+    .lightbox.zoomed img { max-width: none; max-height: none; width: min(220vw, 2400px); cursor: zoom-out; margin: auto; }
+    .lightbox .lb-caption { color: #eee; font-size: .9rem; margin-top: 12px; text-align: center; max-width: 900px; }
+    .lightbox.zoomed .lb-caption { display: none; }
+    .lb-close {
+      position: fixed; top: 10px; right: 16px; background: none; border: none; color: #fff;
+      font-size: 2rem; line-height: 1; cursor: pointer; z-index: 201;
+    }
+    .pub-body { flex: 1; min-width: 0; }
+    .pub-title { font-weight: 700; display: block; }
+    .pub-authors { display: block; font-size: .95rem; }
+    .pub-authors .me { font-weight: 700; font-style: italic; text-decoration: underline; }
+    .pub-venue { display: block; font-style: italic; font-size: .95rem; color: var(--muted); }
+    .pub-links { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .pub-links a, .pub-links button {
+      font-family: inherit; font-size: .78rem; border: 1px solid var(--text); color: var(--text);
+      background: transparent; border-radius: 3px; padding: 1px 8px; cursor: pointer; text-transform: uppercase;
+    }
+    .pub-links a:hover, .pub-links button:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .abstract {
+      display: none; margin-top: 10px; padding: 10px 12px; font-size: .92rem; text-align: justify;
+      border: 1px dashed var(--border); border-radius: 4px; color: var(--text);
+    }
+    .abstract.open { display: block; }
+
+    /* ---------- Skills ---------- */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid2 h4 { margin: 0 0 6px; font-weight: 700; }
+    .grid2 ul { margin: 0; padding-left: 18px; }
+    .grid2 li { margin-bottom: 3px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border); text-align: center; color: var(--muted);
+      font-size: .85rem; padding: 22px 16px 30px;
+    }
+    footer .social { justify-content: center; font-size: 1.4rem; margin: 0 0 10px; }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 700px) {
+      .menu-btn { display: block; }
+      .nav-links {
+        display: none; position: absolute; top: 56px; left: 0; right: 0; flex-direction: column;
+        align-items: flex-start; gap: 0; background: var(--nav-bg); border-bottom: 1px solid var(--border);
+        padding: 6px 16px 12px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; padding: 8px 0; }
+      h1.name { font-size: 2rem; }
+      .profile { float: none; width: 60%; max-width: 230px; margin: 0 auto 18px; }
+      .about p { text-align: left; }
+      table.timeline td.date { width: auto; white-space: normal; display: block; border-bottom: none; padding-bottom: 0; }
+      table.timeline td { display: block; }
+      ol.pubs li { flex-direction: column; gap: 8px; }
+      .abbr { flex: none; width: 100%; max-width: 320px; }
+      .thumb { width: 100%; height: 190px; }
+      .thumb-wrap { width: 100%; }
+      .grid2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top"><b>Abderrahmane</b> Boulahdour</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/></svg></button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#top" class="active">About</a></li>
+        <li><a href="CV.pdf" target="_blank">Curriculum Vitae</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576C388.8 576 451.3 548.8 497.3 504.6C504.6 497.6 506.7 486.7 502.6 477.5C498.5 468.3 488.9 462.6 478.8 463.4C473.9 463.8 469 464 464 464C362.4 464 280 381.6 280 280C280 207.9 321.5 145.4 382.1 115.2C391.2 110.7 396.4 100.9 395.2 90.8C394 80.7 386.6 72.5 376.7 70.3C358.4 66.2 339.4 64 320 64z"/></svg></button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about clearfix">
+      <h1 class="name"><b>Abderrahmane</b> Boulahdour</h1>
+
+      <div class="profile">
+        <!-- Put your photo in the same folder and name it photo.jpg -->
+        <img src="photo.jpg" alt="Abderrahmane Boulahdour">
+        <div class="addr">
+          Ph.D. Student<br>
+          Université du Québec à Trois-Rivières<br>
+          Trois-Rivières, QC, Canada
+        </div>
+      </div>
+
+      <p>
+        I am a Ph.D. student in Electrical and Computer Engineering at the
+        <a href="https://www.uqtr.ca/" target="_blank">Université du Québec à Trois-Rivières (UQTR)</a>, Canada,
+        advised by <a class="plain" href="https://oraprdnt.uqtr.uquebec.ca/portail/genw050r.page_perso?owa_no_personne=843238" target="_blank">Prof. Miloud Bagaa</a> and co-advised by <a class="plain" href="https://oraprdnt.uqtr.uquebec.ca/portail/genw050r.page_perso?owa_no_personne=233989" target="_blank">Prof. Messaoud Ahmed Ouameur</a>.
+        I received my M.S. and B.S. degrees from
+        <a href="https://www.usthb.dz/" target="_blank">USTHB</a>, Algeria.
+      </p>
+      <p>
+        My research focuses on <b>Time-Sensitive Networking (TSN)</b> and <b>Software-Defined Networking (SDN)</b>
+        for the <b>Cloud–Edge Computing Continuum</b>. I work on bringing TSN from theory to
+        real hardware, and on AI-assisted methods to optimize traffic shaping, scheduling, and path selection
+        in large-scale networks.
+      </p>
+
+      <!--
+      <div class="highlight-box">
+        <b>Open to opportunities:</b> I am interested in research collaborations, internships, and roles in
+        deterministic networking, TSN/SDN, and cloud-native infrastructure.
+      </div>
+      -->
+
+      <div class="social">
+        <a href="mailto:abderrahmane.boulahdour@uqtr.ca" title="Email"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=L1UGvdQAAAAJ&hl=en" target="_blank" title="Google Scholar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+        <a href="https://github.com/arboulahdour" target="_blank" title="GitHub"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M280.5 426.5C214.5 418.5 168 371 168 309.5C168 284.5 177 257.5 192 239.5C185.5 223 186.5 188 194 173.5C214 171 241 181.5 257 196C276 190 296 187 320.5 187C345 187 365 190 383 195.5C398.5 181.5 426 171 446 173.5C453 187 454 222 447.5 239C463.5 258 472 283.5 472 309.5C472 371 425.5 417.5 358.5 426C375.5 437 387 461 387 488.5L387 540.5C387 555.5 399.5 564 414.5 558C505 523.5 576 433 576 321C576 179.5 461 64 319.5 64C178 64 64 179.5 64 321C64 432 134.5 524 229.5 558.5C243 563.5 256 554.5 256 541L256 501C249 504 240 506 232 506C199 506 179.5 488 165.5 454.5C160 441 154 433 142.5 431.5C136.5 431 134.5 428.5 134.5 425.5C134.5 419.5 144.5 415 154.5 415C169 415 181.5 424 194.5 442.5C204.5 457 215 463.5 227.5 463.5C240 463.5 248 459 259.5 447.5C268 439 274.5 431.5 280.5 426.5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/abderrahmane-boulahdour-462165169" target="_blank" title="LinkedIn"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"/></svg></a>
+        <a href="https://www.credly.com/users/abderrahmane-boulahdour" target="_blank" title="Credly certifications"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M271.2 56C265.1 49.8 256.2 47.3 247.8 49.6C239.4 51.9 232.9 58.4 230.8 66.8L215.5 127C214.4 131.4 209.9 134 205.6 132.7L145.8 115.9C137.4 113.5 128.4 115.9 122.3 122C116.2 128.1 113.8 137.1 116.2 145.5L133.1 205.3C134.3 209.6 131.7 214.1 127.4 215.2L67.1 230.5C58.7 232.6 52.1 239.2 49.8 247.6C47.5 256 50 264.9 56.2 271L100.7 314.3C103.9 317.4 103.9 322.6 100.7 325.8L56.3 369.1C50.1 375.2 47.6 384.1 49.9 392.5C52.2 400.9 58.8 407.4 67.2 409.6L127.4 424.9C131.8 426 134.4 430.5 133.1 434.8L116.2 494.5C113.8 502.9 116.2 511.9 122.3 518C128.4 524.1 137.4 526.5 145.8 524.1L205.6 507.2C209.9 506 214.4 508.6 215.5 512.9L230.8 573.1C232.9 581.5 239.5 588.1 247.9 590.4C256.3 592.7 265.2 590.2 271.3 584L314.6 539.5C317.7 536.3 322.9 536.3 326.1 539.5L369.3 584C375.4 590.2 384.3 592.7 392.7 590.4C401.1 588.1 407.6 581.5 409.8 573.1L425.1 513C426.2 508.6 430.7 506 435 507.3L494.8 524.2C503.2 526.6 512.2 524.2 518.3 518.1C524.4 512 526.8 503 524.4 494.6L507.5 434.8C506.3 430.5 508.9 426 513.2 424.9L573.4 409.6C581.8 407.5 588.4 400.9 590.7 392.5C593 384.1 590.5 375.1 584.3 369.1L539.8 325.8C536.6 322.7 536.6 317.5 539.8 314.3L584.3 271C590.5 264.9 593 256 590.7 247.6C588.4 239.2 581.8 232.7 573.4 230.5L513.2 215.2C508.8 214.1 506.2 209.6 507.5 205.3L524.4 145.5C526.8 137.1 524.4 128.1 518.3 122C512.2 115.9 503.2 113.5 494.8 115.9L435 132.8C430.7 134 426.2 131.4 425.1 127.1L409.8 66.8C407.7 58.4 401.1 51.8 392.7 49.5C384.3 47.2 375.4 49.7 369.3 55.9L326 100.5C322.9 103.7 317.7 103.7 314.5 100.5L271.2 56z"/></svg></a>
+      </div>
+    </section>
+
+    <!-- ================= NEWS ================= -->
+    <section id="news">
+      <h2>News</h2>
+      <div class="news-scroll">
+        <table class="timeline">
+          <tr><td class="date">Sep 2026</td><td>Our paper comparing <b>CBS and ATS in zone-based in-vehicle TSN</b> was accepted to <b>Springer Journal of Network and Systems Management (JNSM)</b>. 🎉</td></tr>
+          <tr><td class="date">Sep 2026</td><td>Our paper on <b>software-defined TSN scheduling with eBPF</b> was published in <b>IEEE Transactions on Network and Service Management (TNSM)</b>.</td></tr>
+          <tr><td class="date">Aug 2026</td><td>Our TNSM paper was <b>accepted</b>, and our <b>FPGA-enabled ATS</b> paper was published at <b>IEEE LANMAN 2026</b>.</td></tr>
+          <tr><td class="date">Jul 2026</td><td>Two papers published: <b>UBS-TBE in the Linux kernel</b> at <b>IEEE ICC 2026</b> and <b>LRQ shaper for multi-hop SDNs</b> at <b>IEEE IWCMC 2026</b>.</td></tr>
+          <tr><td class="date">Apr 2026</td><td>Our paper on <b>FPGA per-stream processing for ATS</b> was accepted to <b>IEEE LANMAN 2026</b>.</td></tr>
+          <tr><td class="date">Mar 2026</td><td>Our paper was accepted to <b>IEEE IWCMC 2026</b>, and our <b>eBPF-driven ATS scheduler</b> was published in the <b>IEEE GLOBECOM 2025</b> proceedings.</td></tr>
+          <tr><td class="date">Jan 2026</td><td>Our paper on a <b>Linux-kernel native UBS-TBE implementation</b> was accepted to <b>IEEE ICC 2026</b>.</td></tr>
+          <tr><td class="date">Jul 2025</td><td>Our paper on an <b>eBPF-driven ATS scheduler</b> was accepted to <b>IEEE GLOBECOM 2025</b>.</td></tr>
+          <tr><td class="date">Jun 2025</td><td>Attended <b>IEEE ICC 2025</b> in Montréal, Canada (June 8–12), where I presented our paper on <b>queuing and shaping in TSN for future 6G networks</b>.</td></tr>
+          <tr><td class="date">Jun 2025</td><td>Presented my research as a speaker at the <b>2025 Biennial Symposium on Communications (BSC 2025)</b> in Sherbrooke, Canada (June 3–6).</td></tr>
+          <tr><td class="date">Jan 2025</td><td>Our paper on <b>queuing and shaping in TSN for 6G</b> was accepted to <b>IEEE ICC 2025</b>.</td></tr>
+          <tr><td class="date">Sep 2024</td><td>My first paper, on <b>asynchronous TSN in automotive zone-based architectures</b>, was accepted to <b>IEEE LATINCOM 2024</b>.</td></tr>
+          <tr><td class="date">May 2024</td><td>I started my Ph.D. at <b>UQTR</b> under the supervision of Prof. Miloud Bagaa.</td></tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education">
+      <h2>Education</h2>
+      <table class="timeline">
+        <tr>
+          <td class="date">2024 – Present</td>
+          <td>
+            <a href="https://www.uqtr.ca/" target="_blank">Université du Québec à Trois-Rivières (UQTR)</a>, Trois-Rivières, QC, Canada<br>
+            Ph.D. in Electrical and Computer Engineering<br>
+            <span class="sub">Advisor: <a class="plain" href="https://oraprdnt.uqtr.uquebec.ca/portail/genw050r.page_perso?owa_no_personne=843238" target="_blank">Prof. Miloud Bagaa</a> · Co-advisor: <a class="plain" href="https://oraprdnt.uqtr.uquebec.ca/portail/genw050r.page_perso?owa_no_personne=233989" target="_blank">Prof. Messaoud Ahmed Ouameur</a></span>
+          </td>
+        </tr>
+        <tr>
+          <td class="date">2018 – 2020</td>
+          <td>
+            <a href="https://www.usthb.dz/" target="_blank">University of Science and Technology Houari Boumediene (USTHB)</a>, Algiers, Algeria<br>
+            M.S. in Networks and Telecommunications
+          </td>
+        </tr>
+        <tr>
+          <td class="date">2015 – 2018</td>
+          <td>
+            <a href="https://www.usthb.dz/" target="_blank">University of Science and Technology Houari Boumediene (USTHB)</a>, Algiers, Algeria<br>
+            B.S. in Telecommunications
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience">
+      <h2>Experience</h2>
+      <table class="timeline">
+        <tr>
+          <td class="date">2024 – Present</td>
+          <td>
+            Université du Québec à Trois-Rivières (UQTR)<br>
+            <span class="role">Ph.D. Student, TSN &amp; SDN for the Cloud–Edge Continuum</span>
+            <ul>
+              <li>Built a custom embedded Linux platform integrating QoS, TSN, and SDN tools for real-world asynchronous TSN experimentation.</li>
+              <li>Designing AI-assisted optimization of ATS shaping/scheduling parameters and SDN path selection.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="date">Jan 2023 – Aug 2023</td>
+          <td>
+            Dependopolis Consulting, United Kingdom<br>
+            <span class="role">DevOps Junior Consultant</span>
+            <ul>
+              <li>Designed and implemented effective DevOps solutions.</li>
+              <li>Provided support to operations and development teams.</li>
+              <li>Helped troubleshoot and resolve issues in IT systems.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="date">Nov 2022 – May 2023</td>
+          <td>
+            Visyond Ventures, United Kingdom<br>
+            <span class="role">DevOps Engineer (Part-time)</span>
+            <ul>
+              <li>Established DevOps best practices.</li>
+              <li>Guided team members through standard incident procedures and wrote troubleshooting documentation.</li>
+              <li>Contributed to continuous product improvement and customer satisfaction.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="date">Jun 2021 – Sep 2021</td>
+          <td>
+            ADEX Technology, Algeria<br>
+            <span class="role">Cloud &amp; DevOps Engineer</span>
+            <ul>
+              <li>Analyzed and automated the generation of customer offers.</li>
+              <li>Contributed to deploying IaaS and PaaS solutions on ADEX Cloud.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td class="date">Jul 2020 – Dec 2025</td>
+          <td>
+            Fiverr, remote (<a href="https://www.fiverr.com/ar_boulahdour" target="_blank">profile</a>)<br>
+            <span class="role">IT Engineer (Freelance)</span>
+            <ul>
+              <li>Received and handled client requests, identifying their needs, requirements, and end goals.</li>
+              <li>Discussed proposals and possible solutions, and negotiated pricing based on each client's budget.</li>
+              <li>Built and maintained long-term working relationships with clients.</li>
+              <li>Delivered and tested solutions, and held meetings to demonstrate the work when needed.</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- ================= PUBLICATIONS ================= -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="pub-note">2 journal articles and 6 international conference papers. See also <a href="https://scholar.google.com/citations?user=L1UGvdQAAAAJ&hl=en" target="_blank">Google Scholar</a>.</p>
+
+      <!--
+        AUTHORS: listed in the exact order of each paper.
+        Keep your own name wrapped in <span class="me">...</span> so it is highlighted.
+        HOW TO CHANGE A THUMBNAIL: put a figure from the paper in the images/ folder
+        (e.g. images/tnsm2026.png) and update the matching src="images/..." below.
+      -->
+
+      <h3 class="pub-group">Journal Articles</h3>
+      <ol class="pubs">
+        <li>
+          <div class="abbr">
+            <span class="badge">Springer JNSM</span>
+            <img class="thumb" src="images/jnsm2026.png" alt="CBS vs ATS end-to-end delay" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Comparative Evaluation of CBS and ATS Traffic Shaping in Zone-Based In-Vehicle TSN: An End-to-End Delay and Network Calculus Analysis</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Messaoud Ahmed Ouameur, Adlen Ksentini, Daniel Massicotte</span>
+            <span class="pub-venue">Journal of Network and Systems Management (JNSM), 2026 · Accepted</span>
+            <div class="pub-links"><button class="abs-btn">Abstract</button></div>
+            <div class="abstract">The modern automotive industry faces growing communication challenges driven by the increasing density of Electronic Control Units (ECUs) required for Advanced Driver Assistance Systems (ADAS), infotainment, and autonomous driving. In-vehicle networks (IVNs) are therefore transitioning toward Ethernet with Time-Sensitive Networking (TSN) as a unified backbone, enabling Vehicle-to-Everything (V2X) services built on 5G connectivity. However, conventional TSN synchronous operation becomes increasingly impractical in large-scale automotive environments. This paper investigates the integration of the Credit-Based Shaper (CBS) under synchronization and the Asynchronous Traffic Shaper (ATS) within a zone-based IVN architecture connected to a 5G V2X interface. A formal E2E delay analysis is developed, decomposing the delay into propagation and device-level components, and complemented by analytical worst-case delay bounds derived via network calculus to provide deterministic per-stream guarantees for both mechanisms. The evaluation is conducted under both store-and-forward (S&amp;F) and cut-through (CT) switching modes using realistic in-vehicle traffic profiles. Results show that ATS delivers comparable E2E delay performance to CBS while operating fully asynchronously, positioning it as a scalable and practical alternative for next-generation zone-based IVN deployments.</div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">IEEE TNSM</span>
+            <img class="thumb" src="images/tnsm2026.jpg" alt="eBPF-based TSN scheduling in the Linux kernel" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Toward Software-Defined TSN Scheduling: An eBPF Approach for Stream Processing and Delay Analysis in Industry 5.0</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Adlen Ksentini, Messaoud Ahmed Ouameur, Daniel Massicotte</span>
+            <span class="pub-venue">IEEE Transactions on Network and Service Management (TNSM), 2026</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11674291" target="_blank">Paper</a></div>
+          </div>
+        </li>
+      </ol>
+
+      <h3 class="pub-group">Conference Papers</h3>
+      <ol class="pubs">
+        <li>
+          <div class="abbr">
+            <span class="badge">LANMAN</span>
+            <img class="thumb" src="images/lanman2026.jpg" alt="FPGA per-stream shaping" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">FPGA-Enabled Design for Per-Stream Processing in Asynchronous Traffic Shaping for TSN</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Michel Lemaire, Miloud Bagaa, Messaoud Ahmed Ouameur, Adlen Ksentini, Hugo Bertrand</span>
+            <span class="pub-venue">IEEE International Symposium on Local and Metropolitan Area Networks (LANMAN), 2026</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11623522" target="_blank">Paper</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">ICC</span>
+            <img class="thumb" src="images/icc2026.png" alt="Token bucket shaper in the Linux kernel" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Bridging Theory and Practice: Linux Kernel Native Implementation of UBS-TBE for Industry 5.0</span>
+            <span class="pub-authors">Selma Zerrouki, Salma Taib, <span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Abir Derouiche, Messaoud Ahmed Ouameur</span>
+            <span class="pub-venue">IEEE International Conference on Communications (ICC), MWN Symposium, 2026</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11588029" target="_blank">Paper</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">IWCMC</span>
+            <img class="thumb" src="images/iwcmc2026.jpg" alt="LRQ shaping in a multi-hop SDN" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Length Rate Quotient Shaper for Deterministic Quality of Service in Multi-Hop SDNs</span>
+            <span class="pub-authors">Salma Taib, Selma Zerrouki, <span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Abir Derouiche, Messaoud Ahmed Ouameur</span>
+            <span class="pub-venue">IEEE International Wireless Communications and Mobile Computing Conference (IWCMC), WiSensors &amp; IoT Symposium, 2026</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11579974" target="_blank">Paper</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">GLOBECOM</span>
+            <img class="thumb" src="images/globecom2025.png" alt="eBPF-driven ATS scheduler" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">eBPF-Driven ATS Scheduler: An Advanced Stream Processing Approach for Industry 5.0</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Adlen Ksentini, Messaoud Ahmed Ouameur, Daniel Massicotte</span>
+            <span class="pub-venue">IEEE Global Communications Conference (GLOBECOM), SAC – CECN, 2025</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11432555/" target="_blank">Paper</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">ICC</span>
+            <img class="thumb" src="images/icc2025.png" alt="Priority queues and shapers" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Flow Management Using Advanced Queuing and Shaping in TSN for Future 6G Networks</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Messaoud Ahmed Ouameur, Oussama Bekkouche, Adlen Ksentini, Daniel Massicotte</span>
+            <span class="pub-venue">IEEE International Conference on Communications (ICC), NGNI Symposium, 2025</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/11161903" target="_blank">Paper</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="abbr">
+            <span class="badge">LATINCOM</span>
+            <img class="thumb" src="images/latincom2024.png" alt="Zone-based automotive architecture" loading="lazy">
+          </div>
+          <div class="pub-body">
+            <span class="pub-title">Asynchronous Time-Sensitive Networking (TSN) Implementation in Automotive Zone-Based Architecture</span>
+            <span class="pub-authors"><span class="me">Abderrahmane Boulahdour</span>, Miloud Bagaa, Messaoud Ahmed Ouameur, Oussama Bekkouche, Adlen Ksentini</span>
+            <span class="pub-venue">IEEE Latin-American Conference on Communications (LATINCOM), 2024</span>
+            <div class="pub-links"><a href="https://ieeexplore.ieee.org/document/10770653" target="_blank">Paper</a></div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= SERVICE & TEACHING ================= -->
+    <section id="service">
+      <h2>Service and Teaching</h2>
+      <div class="grid2">
+        <div>
+          <h4>Professional Service</h4>
+          <ul>
+            <li>TPC Member, IEEE ICC 2026 – IoT &amp; Sensor Networks Symposium</li>
+            <li>TPC Member, IEEE ICC 2027 (upcoming)</li>
+            <li>Reviewer, IEEE Transactions on Network and Service Management (TNSM), 2025 – 2026</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Teaching &amp; Supervision</h4>
+          <ul>
+            <li>Teaching Assistant, GEI1091 – Réseaux informatiques, UQTR (Winter 2025)</li>
+            <li>Supervisor, Bachelor's internship GEI1096 – Stage de génie informatique, UQTR (Summer 2026)</li>
+            <li>Supervisor of two Master's students from the École nationale Supérieure d'Informatique (ESI), Algiers, Algeria (2024 – 2025), leading to two co-authored IEEE conference papers</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICATIONS & MORE ================= -->
+    <section id="certifications">
+      <h2>Certifications &amp; Skills</h2>
+      <div class="grid2">
+        <div>
+          <h4>Professional Certifications</h4>
+          <ul>
+            <li>Cisco CCNA</li>
+            <li>Huawei HCIA</li>
+            <li>Juniper JNCIA (Junos, Design, DevOps, Cloud)</li>
+            <li>Microsoft Azure Cloud</li>
+            <li>Linux Foundation – Kubernetes (cloud-native)</li>
+          </ul>
+          <p style="margin:8px 0 0"><a href="https://www.credly.com/users/abderrahmane-boulahdour" target="_blank">View all badges on Credly →</a></p>
+        </div>
+        <div>
+          <h4>Research &amp; Technical Skills</h4>
+          <ul>
+            <li><b>TSN:</b> IEEE 802.1AS (gPTP), IEEE 802.1Qcr (ATS), IEEE 802.1Qbv (TAS), IEEE 802.1Qav (CBS), QoS</li>
+            <li><b>SDN:</b> network automation, OpenFlow, P4, SDN controllers (ONOS, Ryu), NFV, network programmability</li>
+            <li><b>Systems:</b> eBPF, Linux kernel networking, embedded Linux</li>
+            <li><b>Networks:</b> industrial communications, edge–cloud continuum, network architectures</li>
+            <li><b>AI:</b> artificial intelligence, machine learning, deep learning, reinforcement learning, neural networks, graph neural networks</li>
+            <li><b>Analysis &amp; optimization:</b> network calculus, delay analysis, queueing theory, integer linear programming (ILP), heuristic and metaheuristic optimization</li>
+          </ul>
+          <!-- <h4 style="margin-top:14px">Languages</h4>
+          <ul>
+            <li>Arabic, French, English, Spanish (basic)</li>
+          </ul>
+          <h4 style="margin-top:14px">Volunteering</h4>
+          <ul>
+            <li>59<sup>th</sup> Finale des Jeux du Québec (2025)</li>
+          </ul> -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" aria-label="Close">&times;</button>
+    <img alt="Publication figure">
+    <div class="lb-caption">Click the image to zoom in · Esc or click outside to close</div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="social">
+      <a href="mailto:abderrahmane.boulahdour@uqtr.ca" title="Email"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z"/></svg></a>
+      <a href="https://scholar.google.com/citations?user=L1UGvdQAAAAJ&hl=en" target="_blank" title="Google Scholar"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+      <a href="https://github.com/arboulahdour" target="_blank" title="GitHub"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M280.5 426.5C214.5 418.5 168 371 168 309.5C168 284.5 177 257.5 192 239.5C185.5 223 186.5 188 194 173.5C214 171 241 181.5 257 196C276 190 296 187 320.5 187C345 187 365 190 383 195.5C398.5 181.5 426 171 446 173.5C453 187 454 222 447.5 239C463.5 258 472 283.5 472 309.5C472 371 425.5 417.5 358.5 426C375.5 437 387 461 387 488.5L387 540.5C387 555.5 399.5 564 414.5 558C505 523.5 576 433 576 321C576 179.5 461 64 319.5 64C178 64 64 179.5 64 321C64 432 134.5 524 229.5 558.5C243 563.5 256 554.5 256 541L256 501C249 504 240 506 232 506C199 506 179.5 488 165.5 454.5C160 441 154 433 142.5 431.5C136.5 431 134.5 428.5 134.5 425.5C134.5 419.5 144.5 415 154.5 415C169 415 181.5 424 194.5 442.5C204.5 457 215 463.5 227.5 463.5C240 463.5 248 459 259.5 447.5C268 439 274.5 431.5 280.5 426.5z"/></svg></a>
+      <a href="https://www.linkedin.com/in/abderrahmane-boulahdour-462165169" target="_blank" title="LinkedIn"><svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"/></svg></a>
+    </div>
+    © Copyright <span id="year">2026</span> Abderrahmane Boulahdour.
+  </footer>
+
+  <script>
+    // Dark mode toggle (remembers choice when browser storage is available)
+    (function () {
+      var root = document.documentElement;
+      var btn = document.getElementById('themeBtn');
+      var SUN = '<svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 32C328.4 32 336.3 36.4 340.6 43.7L396.1 136.3L500.9 110C509.1 108 517.8 110.4 523.7 116.3C529.6 122.2 532 131 530 139.1L503.7 243.8L596.4 299.3C603.6 303.6 608.1 311.5 608.1 319.9C608.1 328.3 603.7 336.2 596.4 340.5L503.7 396.1L530 500.8C532 509 529.6 517.7 523.7 523.6C517.8 529.5 509 532 500.9 530L396.2 503.7L340.7 596.4C336.4 603.6 328.5 608.1 320.1 608.1C311.7 608.1 303.8 603.7 299.5 596.4L243.9 503.7L139.2 530C131 532 122.4 529.6 116.4 523.7C110.4 517.8 108 509 110 500.8L136.2 396.1L43.6 340.6C36.4 336.2 32 328.4 32 320C32 311.6 36.4 303.7 43.7 299.4L136.3 243.9L110 139.1C108 130.9 110.3 122.3 116.3 116.3C122.3 110.3 131 108 139.2 110L243.9 136.2L299.4 43.6L301.2 41C305.7 35.3 312.6 31.9 320 31.9zM320 176C240.5 176 176 240.5 176 320C176 399.5 240.5 464 320 464C399.5 464 464 399.5 464 320C464 240.5 399.5 176 320 176zM320 416C267 416 224 373 224 320C224 267 267 224 320 224C373 224 416 267 416 320C416 373 373 416 320 416z"/></svg>';
+      var MOON = '<svg class="icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false"><path fill="currentColor" d="M320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576C388.8 576 451.3 548.8 497.3 504.6C504.6 497.6 506.7 486.7 502.6 477.5C498.5 468.3 488.9 462.6 478.8 463.4C473.9 463.8 469 464 464 464C362.4 464 280 381.6 280 280C280 207.9 321.5 145.4 382.1 115.2C391.2 110.7 396.4 100.9 395.2 90.8C394 80.7 386.6 72.5 376.7 70.3C358.4 66.2 339.4 64 320 64z"/></svg>';
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(saved || (prefersDark ? 'dark' : 'light'));
+
+      function setTheme(t) {
+        root.setAttribute('data-theme', t);
+        btn.innerHTML = t === 'dark' ? SUN : MOON;
+      }
+      btn.addEventListener('click', function () {
+        var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      });
+    })();
+
+    // Mobile menu
+    document.getElementById('menuBtn').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    document.querySelectorAll('#navLinks a').forEach(function (a) {
+      a.addEventListener('click', function () { document.getElementById('navLinks').classList.remove('open'); });
+    });
+
+    // Abstract toggles
+    document.querySelectorAll('.abs-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        b.closest('.pub-body').querySelector('.abstract').classList.toggle('open');
+      });
+    });
+
+    // Thumbnails: magnifier hint + full-screen viewer with extra zoom
+    var lb = document.getElementById('lightbox');
+    var lbImg = lb.querySelector('img');
+    var lbCap = lb.querySelector('.lb-caption');
+    var MAG = '<svg viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M416 208c0 45.9-14.9 88.3-40 122.7l126.6 126.7c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>';
+    function closeLb() { lb.classList.remove('open', 'zoomed'); document.body.style.overflow = ''; }
+    document.querySelectorAll('.thumb').forEach(function (img) {
+      var wrap = document.createElement('span');
+      wrap.className = 'thumb-wrap';
+      img.parentNode.insertBefore(wrap, img);
+      wrap.appendChild(img);
+      var hint = document.createElement('span');
+      hint.className = 'zoom-hint';
+      hint.innerHTML = MAG;
+      wrap.appendChild(hint);
+      img.title = 'Click to enlarge';
+      img.addEventListener('click', function () {
+        var title = img.closest('li').querySelector('.pub-title');
+        lbImg.src = img.src;
+        lbCap.textContent = (title ? title.textContent + ' — ' : '') + 'click the image to zoom in';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    lbImg.addEventListener('click', function (e) { e.stopPropagation(); lb.classList.toggle('zoomed'); });
+    lb.addEventListener('click', closeLb);
+    lb.querySelector('.lb-close').addEventListener('click', function (e) { e.stopPropagation(); closeLb(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
